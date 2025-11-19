@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 상단 필터 바 -->
+    <LinearLayout
+        android:id="@+id/filter_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#CCFFFFFF"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <CheckBox
+            android:id="@+id/cb_bung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="붕어빵"
+            android:checked="true" />
+
+        <CheckBox
+            android:id="@+id/cb_tako"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타코야끼"
+            android:checked="true"
+            android:layout_marginStart="8dp" />
+
+        <CheckBox
+            android:id="@+id/cb_hodduk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="호떡"
+            android:checked="true"
+            android:layout_marginStart="8dp" />
+
+        <CheckBox
+            android:id="@+id/cb_flower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="국화빵"
+            android:checked="true"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- 지도 -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map_fragment"
+        android:name="com.naver.maps.map.MapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/filter_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/detail_panel" />
+
+    <!-- 오른쪽에서 나오는 상세 패널 -->
+    <LinearLayout
+        android:id="@+id/detail_panel"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 상단: 닫기 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/close" />
+
+        <!-- 가게 이름 -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:text="가게 이름" />
+
+        <!-- 종류 (붕어빵 / 타코야끼 / ...) -->
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="종류" />
+
+        <!-- 영업시간 -->
+        <TextView
+            android:id="@+id/tv_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="영업시간" />
+
+        <!-- 가격 정보 -->
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="가격 정보" />
+
+        <!-- 한 줄 설명 -->
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="추가 설명" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
